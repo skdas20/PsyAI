@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PsyAI - Your One Step Solution for Mental Wellness</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a href="index.html">
+                    <i class="fas fa-brain"></i>
+                    <span>PsyAI</span>
+                </a>
+            </div>
+            <div class="navbar-menu" id="navbarMenu">
+                <ul class="navbar-nav">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="screening.html">Mental Health Screening</a></li>
+                    <li><a href="vr-therapy.html">VR Therapy</a></li>
+                    <li><a href="iot-analysis.html">IoT Analysis</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                </ul>
+                <div class="navbar-buttons">
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="register.html" class="btn btn-primary">Sign Up</a>
+                </div>
+            </div>
+            <div class="navbar-toggle" id="navbarToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with 3D Brain -->
+    <section class="hero">
+        <div id="brain-animation" class="brain-container"></div>
+        <div class="hero-content">
+            <h1>PsyAI</h1>
+            <p>Your one step solution for anxiety and mental wellness</p>
+            <div class="hero-buttons">
+                <a href="screening.html" class="btn btn-primary">Get Started <i class="fas fa-arrow-right"></i></a>
+                <a href="about.html" class="btn btn-outline-light">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>Our Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI-Powered Analysis</h3>
+                    <p>Advanced machine learning algorithms to analyze your mental health patterns and provide personalized recommendations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Real-time Monitoring</h3>
+                    <p>Connect with IoT devices to track physiological indicators of stress and anxiety in real-time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comment"></i>
+                    </div>
+                    <h3>Mood-Based Quotes</h3>
+                    <p>Receive uplifting quotes and motivational content tailored to your current emotional state.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>Trusted By Many</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"PsyAI helped me understand my anxiety triggers and develop effective coping strategies. The personalized recommendations were spot on!"</p>
+                    <div class="testimonial-author">— Deep Dasgupta</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The VR therapy sessions were incredibly immersive and calming. A game-changer for my stress management. I use it daily now."</p>
+                    <div class="testimonial-author">— Sneha Chandra</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The real-time monitoring with my wearable device gave me insights I never had before about my stress patterns. Highly recommended!"</p>
+                    <div class="testimonial-author">— Sagnik Mondal</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-badges">
+        <div class="container">
+            <div class="badges-container">
+                <div class="badge">
+                    <i class="fas fa-users"></i>
+                    <span>10+ Users</span>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-award"></i>
+                    <span>Award-Winning Platform</span>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>99.9% Uptime</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Transform Your Mental Wellness?</h2>
+            <p>Join thousands of users who have improved their mental health with PsyAI's innovative approach.</p>
+            <a href="register.html" class="btn btn-light">Start Your Journey Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>PsyAI</h3>
+                    <p>Your one step solution for anxiety and mental wellness</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="screening.html">Mental Health Screening</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Features</h4>
+                    <ul>
+                        <li><a href="vr-therapy.html">VR Therapy</a></li>
+                        <li><a href="iot-analysis.html">IoT Analysis</a></li>
+                        <li><a href="quotes.html">Mood Quotes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <address>
+                        <p>Email: darkfightergaming2020@gmail.com</p>
+                        <p>Phone: 6290277345</p>
+                        <p>Address: IEM , Kolkata , WB-700091 </p>
+                    </address>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> PsyAI. All rights reserved.</p>
+                <p class="disclaimer">Disclaimer: This platform is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/three-setup.js"></script>
+</body>
+</html>
+

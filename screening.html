@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Screening - PsyAI</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/screening.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a href="index.html">
+                    <i class="fas fa-brain"></i>
+                    <span>PsyAI</span>
+                </a>
+            </div>
+            <div class="navbar-menu" id="navbarMenu">
+                <ul class="navbar-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="screening.html" class="active">Mental Health Screening</a></li>
+                    <li><a href="vr-therapy.html">VR Therapy</a></li>
+                    <li><a href="iot-analysis.html">IoT Analysis</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                </ul>
+                <div class="navbar-buttons">
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="register.html" class="btn btn-primary">Sign Up</a>
+                </div>
+            </div>
+            <div class="navbar-toggle" id="navbarToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="page-content">
+        <div class="container">
+            <h1 class="page-title">Mental Health Screening</h1>
+            
+            <div class="screening-container">
+                <!-- Questionnaire Section -->
+                <div id="questionnaire-section" class="screening-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 id="question-number">Question 1 of 8</h2>
+                            <p class="card-description">This screening is for informational purposes only and is not a diagnostic tool.</p>
+                            <div class="progress-bar">
+                                <div class="progress" id="progress-bar" style="width: 12.5%;"></div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p id="question-text" class="question-text">Over the past 2 weeks, how often have you felt little interest or pleasure in doing things?</p>
+                            <div class="options-container">
+                                <div class="option">
+                                    <input type="radio" id="option-0" name="answer" value="0">
+                                    <label for="option-0">Not at all</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="option-1" name="answer" value="1">
+                                    <label for="option-1">Several days</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="option-2" name="answer" value="2">
+                                    <label for="option-2">More than half the days</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="option-3" name="answer" value="3">
+                                    <label for="option-3">Nearly every day</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button id="prev-btn" class="btn btn-outline" disabled>
+                                <i class="fas fa-arrow-left"></i> Previous
+                            </button>
+                            <button id="next-btn" class="btn btn-primary" disabled>
+                                Next <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Results Section (initially hidden) -->
+                <div id="results-section" class="screening-section" style="display: none;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Your Results</h2>
+                            <p class="card-description">Based on your responses, we've generated the following insights.</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="results-summary">
+                                <h3>Score Summary</h3>
+                                <div class="scores-grid">
+                                    <div class="score-item">
+                                        <p>Depression Indicators</p>
+                                        <div class="progress-bar">
+                                            <div class="progress" id="depression-progress" style="width: 0%;"></div>
+                                        </div>
+                                        <p class="score-text">Score: <span id="depression-score">0</span>/12</p>
+                                    </div>
+                                    <div class="score-item">
+                                        <p>Anxiety Indicators</p>
+                                        <div class="progress-bar">
+                                            <div class="progress" id="anxiety-progress" style="width: 0%;"></div>
+                                        </div>
+                                        <p class="score-text">Score: <span id="anxiety-score">0</span>/12</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="results-chart">
+                                <h3>Visualization</h3>
+                                <div class="chart-container">
+                                    <canvas id="results-chart"></canvas>
+                                </div>
+                            </div>
+                            
+                            <div class="recommendations">
+                                <h3>Personalized Recommendations</h3>
+                                <div id="recommendations-container" class="recommendations-container">
+                                    <!-- Recommendations will be inserted here -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button id="reset-btn" class="btn btn-outline">
+                                <i class="fas fa-redo"></i> Start Over
+                            </button>
+                            <button id="download-btn" class="btn btn-primary">
+                                <i class="fas fa-download"></i> Download Report
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="card mt-20">
+                        <div class="card-header">
+                            <h2>Daily Inspiration</h2>
+                            <p class="card-description">A quote to uplift your mood and provide perspective.</p>
+                        </div>
+                        <div class="card-body">
+                            <blockquote id="quote-text" class="quote">
+                                "The greatest glory in living lies not in never falling, but in rising every time we fall." - Nelson Mandela
+                            </blockquote>
+                        </div>
+                    </div>
+                    
+                    <div class="card mt-20">
+                        <div class="card-header">
+                            <h2>Express Your Feelings</h2>
+                            <p class="card-description">Writing about your emotions can help process them. Your entries are private and can be used to generate personalized quotes.</p>
+                        </div>
+                        <div class="card-body">
+                            <textarea id="journal-text" class="journal-textarea" placeholder="How are you feeling today?"></textarea>
+                        </div>
+                        <div class="card-footer">
+                            <button id="generate-quote-btn" class="btn btn-primary btn-block">
+                                Generate Personalized Response
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>PsyAI</h3>
+                    <p>Your one step solution for anxiety and mental wellness</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="screening.html">Mental Health Screening</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Features</h4>
+                    <ul>
+                        <li><a href="vr-therapy.html">VR Therapy</a></li>
+                        <li><a href="iot-analysis.html">IoT Analysis</a></li>
+                        <li><a href="quotes.html">Mood Quotes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <address>
+                        <p>Email: darkfightergaming2020@gmail.com</p>
+                        <p>Phone: 6290277345</p>
+                        <p>Address: IEM Kolkata , WB - 700091</p>
+                    </address>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> PsyAI. All rights reserved.</p>
+                <p class="disclaimer">Disclaimer: This platform is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/screening.js"></script>
+</body>
+</html>
+
